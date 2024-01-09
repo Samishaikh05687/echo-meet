@@ -29,7 +29,7 @@ export default function Home() {
       <h1>EchoMeet</h1>
       <span className={styles.separatorText}>Enter Your Code To Join The Conservation</span>
       <div className={styles.enterRoom}>
-        <input  placeholder='Enter Room Id' value={roomId} onChange={(e) => setRoom(e?.target?.value)}/> 
+        <input  value={roomId} onChange={(e) => setRoom(e?.target?.value)}/> 
         <button onClick={joinRoom}>Join Room</button>
       </div>
       <span className={styles.separatorText}>------------ OR ------------</span>
