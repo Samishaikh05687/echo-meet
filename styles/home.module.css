@@ -1,5 +1,5 @@
 .homeContainer{
-    @apply w-4/12 mx-auto p-12 border-white rounded mt-20 text-white flex flex-col items-center;
+    @apply w-4/12 mx-auto p-12   rounded mt-20 text-white flex flex-col items-center;
 
     h1{
         @apply p-2 text-4xl text-center md:font-bold;
