@@ -3,17 +3,29 @@ import { useEffect } from "react";
 import { useSocket } from "./context/socket";
 import usePeer from "@/hooks/usePeer";
 import useMediaStream from "@/hooks/useMediaStream";
+
 import Player from "@/componenet/Player";
+import Bottom from "@/componenet/Bottom";
+
 import { LogLevel } from "peerjs";
 import usePlayer from "@/hooks/usePlayer";
 
-import styles from '@/styles/room.module.css'
+import styles from "@/styles/room.module.css";
+import { useRouter } from "next/router";
 
 const Room = () => {
   const socket = useSocket();
+  const { roomId } = useRouter().query;
   const { peer, myId } = usePeer();
   const { stream } = useMediaStream();
-  const { players, setPlayers, playerHighlighted, nonHighlightedPlayers } = usePlayer(myId);
+  const {
+    players,
+    setPlayers,
+    playerHighlighted,
+    nonHighlightedPlayers,
+    toggleAudio,
+    toggleVideo
+  } = usePlayer(myId, roomId);
 
   useEffect(() => {
     if (!socket || !peer || !stream) return;
@@ -92,10 +104,22 @@ const Room = () => {
         {Object.keys(nonHighlightedPlayers).map((PlayerId) => {
           const { url, muted, playing } = nonHighlightedPlayers[PlayerId];
           return (
-            <Player key={PlayerId} url={url} muted={muted} playing={playing} inActive={false} />
+            <Player
+              key={PlayerId}
+              url={url}
+              muted={muted}
+              playing={playing}
+              inActive={false}
+            />
           );
         })}
       </div>
+      <Bottom
+        muted={playerHighlighted?.muted}
+        playing={playerHighlighted?.playing}
+        toggleAudio={toggleAudio}
+        toggleVideo={toggleVideo}
+      />
     </>
   );
 };
