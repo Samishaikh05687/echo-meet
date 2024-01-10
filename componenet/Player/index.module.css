@@ -1,0 +1,7 @@
+.playerContainer{
+    @apply relative overflow-hidden mb-5 h-full;
+}
+.active{
+    @apply rounded-lg;
+}
+
