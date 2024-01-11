@@ -10,6 +10,7 @@ const SocketHandler = (req,res) => {
     
         io.on('connection', (socket) =>{
             console.log("server is connected")
+            
             socket.on('Join-Room',(roomId,userId) => {
                 console.log(`a new user ${userId} joined room ${roomId}`);
                 socket.join(roomId)
@@ -24,6 +25,11 @@ const SocketHandler = (req,res) => {
             socket.on('user-toggle-video',(userId,roomId) => {
                 socket.join(roomId)
                 socket.broadcast.to(roomId).emit(`user-toggle-video`, userId)
+            })
+
+            socket.on('user-leave',(userId,roomId) => {
+                socket.join(roomId)
+                socket.broadcast.to(roomId).emit(`user-leave`, userId)
             })
         })
     }

@@ -1,9 +1,11 @@
 import { useSocket } from "@/pages/context/socket";
 import { cloneDeep } from "lodash";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
-const usePlayer = (myId,roomId) => {
+const usePlayer = (myId,roomId,peer) => {
     const socket = useSocket()
+    const router = useRouter()
     const [players,setPlayers] = useState({})
     const playersCopy = cloneDeep(players)
 
@@ -11,6 +13,13 @@ const usePlayer = (myId,roomId) => {
     delete playersCopy[myId]
 
     const nonHighlightedPlayers = playersCopy
+
+    const leaveRoom = () => {
+        socket.emit('user-leave',myId,roomId)
+        console.log("leaving room",roomId);
+        peer?.disconnect();
+        router.push("/")
+    }
 
     const toggleAudio = () => {
         console.log("I toggled my Audio");
@@ -33,7 +42,7 @@ const usePlayer = (myId,roomId) => {
     
          socket.emit('user-toggle-video',myId,roomId)
     }
-    return{players,setPlayers,playerHighlighted,nonHighlightedPlayers,toggleAudio,toggleVideo}
+    return{players,setPlayers,playerHighlighted,nonHighlightedPlayers,toggleAudio,toggleVideo,leaveRoom}
 }
 
 export default usePlayer;
