@@ -7,6 +7,8 @@ import useMediaStream from "@/hooks/useMediaStream";
 
 import Player from "@/componenet/Player";
 import Bottom from "@/componenet/Bottom";
+import CopySection from "@/componenet/CopySection";
+
 
 import { LogLevel } from "peerjs";
 import usePlayer from "@/hooks/usePlayer";
@@ -96,6 +98,7 @@ const Room = () => {
 
     return () => {
       socket.off("user-toggle-audio", handleToggleAudio);
+      socket.off("user-toggle-video", handleToggleVideo);
       socket.off("user-leave", handleLeave);
     };
   }, [socket, setPlayers, users,players]);
@@ -165,6 +168,7 @@ const Room = () => {
           );
         })}
       </div>
+      <CopySection roomId={roomId}/>
       <Bottom
         muted={playerHighlighted?.muted}
         playing={playerHighlighted?.playing}
