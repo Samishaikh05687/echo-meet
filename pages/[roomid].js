@@ -43,8 +43,8 @@ const Room = () => {
       call.on("stream", (incomingStream) => {
         console.log(`incomming stream from ${newUser} `);
 
-        setPlayers((perv) => ({
-          ...perv,
+        setPlayers((prev) => ({
+          ...prev,
           [newUser]: {
             url: incomingStream,
             muted: true,
@@ -52,7 +52,7 @@ const Room = () => {
           },
         }));
 
-        setUsers((perv) => ({
+        setUsers((prev) => ({
           ...prev,
           [newUser]: call,
         }));
@@ -121,7 +121,7 @@ const Room = () => {
           },
         }));
 
-        setUsers((perv) => ({
+        setUsers((prev) => ({
           ...prev,
           [callerId]: call,
         }));
@@ -130,10 +130,10 @@ const Room = () => {
   }, [peer, setPlayers, stream]);
 
   useEffect(() => {
-    if (!stream || !myId || !setPlayers) return;
+    if (!stream || !myId ) return;
     console.log(`setting my stream ${myId}`);
-    setPlayers((perv) => ({
-      ...perv,
+    setPlayers((prev) => ({
+      ...prev,
       [myId]: {
         url: stream,
         muted: true,
@@ -151,7 +151,7 @@ const Room = () => {
             muted={playerHighlighted.muted}
             playing={playerHighlighted.playing}
             isActive
-          ></Player>
+          />
         )}
       </div>
       <div className={styles.inActivePlayerContainer}>

@@ -13,7 +13,7 @@ const usePeer = () => {
     useEffect(() => {
         if (isPeerSet.current || !roomId || !socket) return;
         isPeerSet.current = true;
-      (async function initpeer(){
+      (async function initPeer(){
         const myPeer = new (await import('peerjs')).default()
         setPeer(myPeer)
 

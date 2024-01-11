@@ -8,7 +8,7 @@ const CopySection = (props) => {
   return (
     <div className={styles.copyContainer}>
       <div className={styles.copyHeading}>Copy Room Id: </div>
-      <hr />
+      <hr className={styles.hr}/>
       <div className={styles.copyDescription}>
         <span>{roomId}</span>
         <CopyToClipboard text={roomId}>

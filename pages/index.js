@@ -4,10 +4,12 @@ import Image from "next/image";
 import videocall from '/pages/videocall.png'
 import styles from '@/styles/home.module.css'
 import { useState } from 'react';
+import usePeer from '@/hooks/usePeer';
 
 export default function Home() {
   const router = useRouter()
   const [roomId,setRoom] = useState('')
+  usePeer()
 
   const createAndJoin = () => {
     const roomId = uuidv4()
