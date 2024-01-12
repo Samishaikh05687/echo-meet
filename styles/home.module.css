@@ -1,8 +1,8 @@
 .homeContainer{
-    @apply w-4/12 mx-auto p-12   rounded mt-20 text-white flex flex-col items-center;
+    @apply w-4/12 mx-auto p-12  rounded mt-20 text-white flex flex-col items-center;
 
     h1{
-        @apply p-2 text-4xl text-center md:font-bold;
+        @apply mt-4 p-2 text-4xl text-center md:font-bold;
     }
 
     button{
@@ -20,4 +20,20 @@
     .separatorText{
         @apply my-3 text-xl;
     }
+}
+
+@media (max-width: 850px) and (min-width: 400px) {
+    .homeContainer{
+        @apply w-10/12 mx-auto p-12  rounded mt-36 text-white flex flex-col items-center;
+    
+    }
+
+    .separatorText{
+        @apply my-1 text-xs text-center  ;
+    }
+   
+    .enterRoom{
+        @apply flex flex-col items-center mt-3 w-11/12;
+    }
+
 }
