@@ -4,12 +4,12 @@ import Image from "next/image";
 import videocall from '/pages/videocall.png'
 import styles from '@/styles/home.module.css'
 import { useState } from 'react';
-import usePeer from '@/hooks/usePeer';
+// import usePeer from '@/hooks/usePeer'
 
 export default function Home() {
   const router = useRouter()
-  const [roomId,setRoom] = useState('')
-  usePeer()
+  const [roomId,setRoomId] = useState('')
+  // usePeer()
 
   const createAndJoin = () => {
     const roomId = uuidv4()
@@ -31,7 +31,7 @@ export default function Home() {
       <h1>EchoMeet</h1>
       <span className={styles.separatorText}>Enter Your Code To Join The Conservation</span>
       <div className={styles.enterRoom}>
-        <input value={roomId} onChange={(e) => setRoom(e?.target?.value)}/> 
+        <input value={roomId} onChange={(e) => setRoomId(e?.target?.value)}/> 
         <button onClick={joinRoom}>Join Room</button>
       </div>
       <span className={styles.separatorText}>------------ OR ------------</span>

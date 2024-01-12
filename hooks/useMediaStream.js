@@ -25,8 +25,8 @@ const useMediaStream = () => {
     }, [])
 
     return{
-        stream:state
+        stream: state
     }
 }
 
-export default useMediaStream
+export default useMediaStream;

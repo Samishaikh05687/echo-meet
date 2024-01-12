@@ -1,4 +1,4 @@
-import { useSocket } from "@/pages/context/socket";
+import { useSocket } from "@/context/socket";
 import { cloneDeep } from "lodash";
 import { useRouter } from "next/router";
 import { useState } from "react";

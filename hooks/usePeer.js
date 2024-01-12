@@ -1,5 +1,6 @@
-import { useSocket } from "@/pages/context/socket"
+import { useSocket } from "@/context/socket"
 import { useRouter } from "next/router"
+
 
 const { useState, useEffect, useRef } = require("react")
 
@@ -11,10 +12,11 @@ const usePeer = () => {
     const isPeerSet = useRef(false)
 
     useEffect(() => {
-        if (isPeerSet.current || !roomId || !socket) return;
+        if (isPeerSet.current) return;
         isPeerSet.current = true;
+        let myPeer;
       (async function initPeer(){
-        const myPeer = new (await import('peerjs')).default()
+        myPeer = new (await import('peerjs')).default()
         setPeer(myPeer)
 
         myPeer.on('open',(id) => {
@@ -26,7 +28,8 @@ const usePeer = () => {
     }, [roomId,socket])
 
     return{
-        peer,myId
+        peer,
+        myId
     }
 }
 

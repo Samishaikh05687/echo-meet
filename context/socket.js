@@ -10,7 +10,7 @@ export const useSocket = () =>{
 
 export const SocketProvider = (props) => {
   const { children } = props;
-  const [socket, setSocket] = useState(null)
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     const connection = io();

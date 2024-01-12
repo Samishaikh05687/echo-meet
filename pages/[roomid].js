@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { cloneDeep } from "lodash";
 
-import { useSocket } from "./context/socket";
+import { useSocket } from "../context/socket";
 import usePeer from "@/hooks/usePeer";
 import useMediaStream from "@/hooks/useMediaStream";
 
@@ -10,7 +10,7 @@ import Bottom from "@/componenet/Bottom";
 import CopySection from "@/componenet/CopySection";
 
 
-import { LogLevel } from "peerjs";
+import { peer } from "peerjs";
 import usePlayer from "@/hooks/usePlayer";
 
 import styles from "@/styles/room.module.css";
