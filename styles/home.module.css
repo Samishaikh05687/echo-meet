@@ -1,12 +1,12 @@
 .homeContainer{
-    @apply w-4/12 mx-auto p-12  rounded mt-20 text-white flex flex-col items-center;
+    @apply w-5/12 mx-auto p-12  rounded mt-20 text-white flex flex-col items-center;
 
     h1{
         @apply mt-4 p-2 text-4xl text-center md:font-bold;
     }
 
     button{
-        @apply bg-buttonPrimary py-2 px-4 rounded-lg w-9/12 md:font-bold;
+        @apply bg-buttonPrimary py-2 px-4 rounded-lg w-7/12 md:font-bold;
     }
 
     .enterRoom{
@@ -18,7 +18,7 @@
     }
 
     .separatorText{
-        @apply my-3 text-xl;
+        @apply my-4 text-[20px] ;
     }
 }
 
