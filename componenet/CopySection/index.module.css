@@ -2,7 +2,7 @@
   @apply flex flex-col absolute text-white border border-white rounded p-2;
   left: 10px;
   bottom: 10px;
-
+   
   hr {
     @apply my-1;
   }
@@ -13,3 +13,9 @@
     @apply flex items-center text-[20px] text-white;
   }
 }
+@media (max-width:500px){
+    .copyContainer{
+      bottom:100px;
+    }
+}
+
