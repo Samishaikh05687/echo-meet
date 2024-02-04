@@ -1,4 +1,4 @@
-//this Hook is for allowing access camera and audio and it would set a stream in app
+
 import { useState, useEffect, useRef } from 'react'
 
 const useMediaStream = () => {
@@ -29,4 +29,4 @@ const useMediaStream = () => {
     }
 }
 
-export default useMediaStream;
+export default useMediaStream; 
